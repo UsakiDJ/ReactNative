@@ -1,17 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import * as FileSystem from "expo-file-system"
+import { TextInput } from 'react-native-paper';
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import Home from "./view/Home"
+import Exo from "./view/Exo"
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+
+    <NavigationContainer>
+      <Stack.Navigator> 
+        <Stack.Screen name="Accueil" component={Home} options={{title: "Accueil"}}/>
+        <Stack.Screen name="Exo" component={Exo} options={{title: "Exercice"}}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
+
+
 const styles = StyleSheet.create({
-  container: {
+ title: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
