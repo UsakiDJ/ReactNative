@@ -1,14 +1,14 @@
-    import {useState} from "react"
-    import { TextInput } from 'react-native-paper';
-    import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
-    
-
+import {useState} from "react"
+import { TextInput } from 'react-native-paper';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View,  } from 'react-native';
+import { Button } from "react-native-paper"
   
     
     const Home = ({navigation}) => {
 
       const [text, setText] = useState("") 
+
 
 
       return(
@@ -23,7 +23,13 @@ import { StyleSheet, Text, View, Button } from 'react-native';
           <View>
           <Button
           onPress={() => {navigation.navigate('Exo')}}
-          title='Go to second page' />
+          title='Go to second page'
+          buttonColor="red"
+          textColor="white"
+          mode="contained"
+          contentStyle="flexDirection">
+            Salut
+          </Button>
           </View>
 
 

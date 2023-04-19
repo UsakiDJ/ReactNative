@@ -2,16 +2,22 @@ import {useState} from "react"
 import { TextInput } from 'react-native-paper';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button} from 'react-native';
-import * as FileSystem from "expo-file-system"
+import { writeFile } from "./Text";
+import * as FileSystem from 'expo-file-system'
 
 
+const Exo = () => {
+
+  const [text, setText] = useState("")
+
+ const addHandlerText = async () => {
+
+    await writeFile(text)
+    const fileInfo = await FileSystem.getInfoAsync(FileSystem.documentDirectory + 'file.txt')
+    console.log('file info in addTodoHandler: ', fileInfo)
 
 
-
-const Exo = ({navigation}) => {
-
-  const [text, setText] = useState("") 
-
+  }
   
   return(
     <View style={styles.container}>
@@ -19,16 +25,15 @@ const Exo = ({navigation}) => {
       <TextInput
       label="Text"
       value={text}
-      onChangeText={text => setText(text)}
+      onChangeText={(value) => {setText(value)}}
       />
-
 
       
         <View>
 
           <Button
           style={styles.button}
-          onPress={() => {navigation.navigate('Home')}}
+          onPress={addHandlerText}
           title='Enregistrer le texte' />
           </View>
       <StatusBar style="auto" />
