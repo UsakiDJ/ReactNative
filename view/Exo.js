@@ -4,20 +4,24 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button} from 'react-native';
 import { writeFile } from "./Text";
 import * as FileSystem from 'expo-file-system'
+import { Mail } from "./MailComposer";
 
 
 const Exo = () => {
 
-  const [text, setText] = useState("")
+const [text, setText] = useState("")
 
  const addHandlerText = async () => {
 
     await writeFile(text)
     const fileInfo = await FileSystem.getInfoAsync(FileSystem.documentDirectory + 'file.txt')
     console.log('file info in addTodoHandler: ', fileInfo)
+     }
 
+const mailHandler = async () => {
+    await Mail(FileSystem.documentDirectory + 'file.txt')
 
-  }
+}     
   
   return(
     <View style={styles.container}>
@@ -29,15 +33,25 @@ const Exo = () => {
       />
 
       
-        <View>
-
+        
+          <View>
           <Button
           style={styles.button}
           onPress={addHandlerText}
           title='Enregistrer le texte' />
           </View>
+
+
+          <View>
+          <Button
+          style={styles.button}
+          onPress={mailHandler}
+          title='Envoyer un mail' />
+          </View>
       <StatusBar style="auto" />
     </View>
+
+
 
 
     )
