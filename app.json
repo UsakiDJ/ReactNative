@@ -25,6 +25,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+
+
+
+    "androidNavigationBar": { "visible": "hidden" },
+    
+    "androidStatusBar": {
+      "hidden": true,
+      "barStyle": "dark-content"
     }
   }
 }

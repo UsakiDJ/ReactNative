@@ -29,8 +29,7 @@ const mailHandler = async () => {
       <TextInput
       label="Text"
       value={text}
-      onChangeText={(value) => {setText(value)}}
-      />
+      onChangeText={(value) => {setText(value)}}     />
 
       
         
@@ -71,3 +70,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#AB14FF",
     }
   });
+
+
+
+  
