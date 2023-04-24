@@ -10,11 +10,13 @@ import { StyleSheet, Text, View,  } from 'react-native';
       return(
 
         <View style={styles.container}>
-          <Text>Hello World</Text>
+          <Text style={styles.paragraph} color="white">Hello World</Text>
           <TextInput
           label="Text"
           value={text}
           onChangeText={text => setText(text)}
+          
+
           />
           <StatusBar style="auto" />
         </View>
@@ -31,6 +33,15 @@ import { StyleSheet, Text, View,  } from 'react-native';
         backgroundColor: '#293133',
         alignItems: 'center',
         justifyContent: 'center',
+        color: "#F2F3F5",
+        
+        
       },
+
+      paragraph: {
+        color:"#F2F3F5",
+        fontWeight:"bold"
+
+      }
     });
  
